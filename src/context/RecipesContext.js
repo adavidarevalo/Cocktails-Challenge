@@ -7,8 +7,9 @@ const RecipesProvider = props =>{
         name:"",
         Ingredients:""
     })
-    const {name, Ingredients} = search
+
     useEffect(()=>{
+        const {name, Ingredients} = search
         if(name ===""||Ingredients==="")return;
         const getApi = async() =>{
             const apiUrl = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}&c=${Ingredients}`)
