@@ -8,19 +8,26 @@ const RecipesProvider = props =>{
         Ingredients:""
     })
 
+    const [Loading, setLoading] = useState(false)
+
     useEffect(()=>{
         const {name, Ingredients} = search
         if(name ===""||Ingredients==="")return;
         const getApi = async() =>{
+            setLoading(true)
             const apiUrl = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${name}&c=${Ingredients}`)
             const data = await apiUrl.json()
             addInfo(data.drinks)
+            setLoading(false)
         }
         getApi();
     },[search])
+
+
     return(
         <RecipesContext.Provider
         value={{
+            Loading: Loading,
             addSearch,
             info
         }}>

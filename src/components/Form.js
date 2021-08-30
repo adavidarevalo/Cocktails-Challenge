@@ -23,6 +23,7 @@ input{
   margin-block:10px;
   max-width: 300px;
   margin-inline: 15px;
+  outline: none;
 }
 select{
   width: 100%;

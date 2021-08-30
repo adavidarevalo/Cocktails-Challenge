@@ -3,6 +3,7 @@ import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import {ModalContext} from "../context/ModalContext"
 import styled from "@emotion/styled"
+import {IMG} from '../styles/PhotoAnimation'
 
 const RecipesDiv = styled.div`
 background: #fff;
@@ -11,6 +12,7 @@ flex-direction: column;
 align-items: center;
 width: 90%;
 max-width: 400px;
+min-width: 295px;
 margin: 25px auto;
 border-radius: 5px;
 min-width: 285px;
@@ -19,6 +21,7 @@ h2{
 }
 img{
   width: 90%;
+  min-height: 255px;
 }
 button{
   padding: 9px 15px;
@@ -97,7 +100,7 @@ const Recipes = ({drinks, addID}) =>{
     <Fragment>
       <RecipesDiv>
         <h2>{drinks.strDrink}</h2>
-        <img src={drinks.strDrinkThumb} alt={drinks.strDrink}/>
+        <IMG src={drinks.strDrinkThumb} alt={drinks.strDrink}/>
         <button
         onClick={()=>{
             addID(drinks.idDrink)
@@ -115,7 +118,7 @@ const Recipes = ({drinks, addID}) =>{
                 <h2 className={classes.title}>{drinksContain.strDrink}</h2>
                 <h3>Instruction</h3>
                 <p>{drinksContain.strInstructions}</p>
-                <img className={classes.image} src={drinksContain.strDrinkThumb} alt={drinksContain.strDrink}/>
+                <IMG className={classes.image} src={drinksContain.strDrinkThumb} alt={drinksContain.strDrink}/>
                 <h3>Ingredients</h3>
                 <ul>
                     {Ingredients(drinksContain)}
